@@ -1,25 +1,21 @@
-//Moves Zero's: 
-import java.util.*;
-
-class Main {
-  public static void moveZeros(int[] array) {
-    int count = 0;
-    for (int i = 0; i < array.length; i++) {
-      if (array[i] != 0) {
-        array[count] = array[i];
-        count++;
-      }
+import java.util.HashSet;
+class Main{
+  public static boolean checkDuplicate(int[] array){
+    int length = array.length;
+    boolean check=false;
+   HashSet<Integer> nums = new HashSet<Integer>();
+   for(int i=0;i<length;i++){
+    if(nums.contains(array[i])){
+      check = true;
     }
-    while (count < array.length) {
-      array[count] = 0;
-      count++;
+    else{
+      nums.add(array[i]);
     }
-    System.out.println(Arrays.toString(array));
-
+   } 
+   return check;   
   }
-
-  public static void main(String[] args) {
-    int[] array = { 1, 0, 2, 0, 3, 0, 4 };
-    moveZeros(array);
+  public static void main(String[] args){
+    int[] array = {1,2,3,4,5,3};
+    System.out.println(checkDuplicate(array));
   }
 }
