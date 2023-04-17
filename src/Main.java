@@ -1,23 +1,15 @@
-import java.util.Arrays;
-
 class Main {
-  public static void fizzBuzz(int n) {
-    String[] solution = new String[n];
-    for (int i = 1; i <= n; i++) {
-      if (i % 3 == 0 && i % 5 == 0) {
-        solution[i-1] = "FizzBuzz";
-      } else if (i % 3 == 0) {
-        solution[i-1] = "Fizz";
-      } else if (i % 5 == 0) {
-        solution[i-1] = "Buzz";
-      } else {
-        solution[i-1] = Integer.toString(i);
-      }
+  public static int singleNumber(int[] nums) {
+    int result = 0;
+    for (int i = 0; i < nums.length; i++) {
+      result = result ^ nums[i];
     }
-    System.out.println(Arrays.toString(solution));
+    return result;
   }
 
   public static void main(String[] args) {
-    fizzBuzz(15);
+    int[] nums = { 1, 2, 1, 2, 3 };
+    int result = singleNumber(nums);
+    System.out.println(result);
   }
 }
